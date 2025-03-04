@@ -15,6 +15,8 @@
 <p></p>
 <h1>Tasks</h1>
 <h2>Tasks1</h2>
+<h3>list</h3>
+<p>有加入連結的</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
 
 # 設定資料來源 URL
@@ -45,6 +47,7 @@ for idx, stud in enumerate(all_stud, start=1):
     brython_div1 &lt;= html.BR()  # 換行
     brython_div1 &lt;= f"作業網站: " + html.A(student_account, href=f"https://{student_account}.github.io/")
     brython_div1 &lt;= html.BR()  # 換行</pre>
+<p>無加入連結的(只顯示學員資料)</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
 
 # 設定資料來源 URL
@@ -73,7 +76,8 @@ student_account = stud_info[1] # GitHub 帳號
 # 插入學員資料，格式為 "學員 GitHub: {student_id}, 作業網站: {student_account}"
 brython_div1 &lt;= f"學員 GitHub: {student_id}, 作業網站: {student_account}"
 brython_div1 &lt;= html.BR() # 換行</pre>
-<p><br/><br/></p><h2>Tasks2</h2>
+<p><br/><br/></p>
+<h2>Tasks2</h2>
 <h2>Tasks3</h2>
 <h2>Tasks4</h2>
 <h2>Tasks5</h2>

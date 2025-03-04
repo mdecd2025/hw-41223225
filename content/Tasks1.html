@@ -131,7 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='Tasks.html'>Tasks</a><ul class='dropdown'><li><a href='Tasks1.html'>Tasks1</a><li><a href='Tasks2.html'>Tasks2</a><li><a href='Tasks3.html'>Tasks3</a><li><a href='Tasks4.html'>Tasks4</a><li><a href='Tasks5.html'>Tasks5</a><li><a href='Tasks6.html'>Tasks6</a></li></ul><li class='has-children'><a href='Homework.html'>Homework</a><ul class='dropdown'><li><a href='HW1.html'>HW1</a><li><a href='HW2.html'>HW2</a><li><a href='HW3.html'>HW3</a></li></ul><li><a href='Midterm.html'>Midterm</a><li class='has-children'><a href='Exam.html'>Exam</a><ul class='dropdown'><li><a href='Exam1.html'>Exam1</a><li><a href='Exam2.html'>Exam2</a><li><a href='Exam3.html'>Exam3</a></li></ul><li><a href='Final.html'>Final</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='Tasks.html'>Tasks</a><ul class='dropdown'><li class='has-children'><a href='Tasks1.html'>Tasks1</a><ul class='dropdown'><li><a href='list.html'>list</a></li></ul><li><a href='Tasks2.html'>Tasks2</a><li><a href='Tasks3.html'>Tasks3</a><li><a href='Tasks4.html'>Tasks4</a><li><a href='Tasks5.html'>Tasks5</a><li><a href='Tasks6.html'>Tasks6</a></li></ul><li class='has-children'><a href='Homework.html'>Homework</a><ul class='dropdown'><li><a href='HW1.html'>HW1</a><li><a href='HW2.html'>HW2</a><li><a href='HW3.html'>HW3</a></li></ul><li><a href='Midterm.html'>Midterm</a><li class='has-children'><a href='Exam.html'>Exam</a><ul class='dropdown'><li><a href='Exam1.html'>Exam1</a><li><a href='Exam2.html'>Exam2</a><li><a href='Exam3.html'>Exam3</a></li></ul><li><a href='Final.html'>Final</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -142,68 +142,8 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Tasks << <a href='Tasks.html'>Previous</a> <a href='Tasks2.html'>Next</a> >> Tasks2<br /><h1>Tasks1</h1>
-<p>有加入連結的</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
-
-# 設定資料來源 URL
-url = "https://mde.tw/list/2b.txt"
-data = open(url).readlines()
-
-# 跳過標題行，取得有效學員資料
-all_stud = data[1:]
-
-# 顯示總學員數量
-print("總共有 " + str(len(all_stud)) + "名學員")
-
-# 取得網頁中指定的 div 元素
-brython_div1 = document["brython_div1"]
-
-# 動態插入每位學員的資料
-for idx, stud in enumerate(all_stud, start=1):
-    # 假設每行的資料是由 tab 或空格分隔的
-    stud_info = stud.split()  # 根據空格分割資料
-    if len(stud_info) &lt; 2:
-        continue  # 跳過格式不正確的資料行
-
-    student_id = stud_info[0]  # 學號
-    student_account = stud_info[1]  # GitHub 帳號
-    
-    # 創建超連結，將學員 GitHub 和作業網站分別插入
-    brython_div1 &lt;= f"{idx}. 學員 GitHub: " + html.A(student_id, href=f"https://github.com/{student_id}")
-    brython_div1 &lt;= html.BR()  # 換行
-    brython_div1 &lt;= f"作業網站: " + html.A(student_account, href=f"https://{student_account}.github.io/")
-    brython_div1 &lt;= html.BR()  # 換行</pre>
-<p>無加入連結的(只顯示學員資料)</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
-
-# 設定資料來源 URL
-url = "https://mde.tw/list/2b.txt"
-data = open(url).readlines()
-
-# 跳過標題行，取得有效學員資料
-all_stud = data[1:]
-
-# 顯示總學員數量
-print("總共有 " + str(len(all_stud)) + "名學員")
-
-# 取得網頁中指定的 div 元素
-brython_div1 = document["brython_div1"]
-
-# 動態插入每位學員的資料
-for idx, stud in enumerate(all_stud, start=1):
-# 假設每行的資料是由 tab 或空格分隔的
-stud_info = stud.split() # 根據空格分割資料
-if len(stud_info) &lt; 2:
-continue # 跳過格式不正確的資料行
-
-student_id = stud_info[0] # 學號
-student_account = stud_info[1] # GitHub 帳號
-
-# 插入學員資料，格式為 "學員 GitHub: {student_id}, 作業網站: {student_account}"
-brython_div1 &lt;= f"學員 GitHub: {student_id}, 作業網站: {student_account}"
-brython_div1 &lt;= html.BR() # 換行</pre>
-<p><br/><br/></p><br />Tasks << <a href='Tasks.html'>Previous</a> <a href='Tasks2.html'>Next</a> >> Tasks2</div>
+    <div id="tipue_search_content">Tasks << <a href='Tasks.html'>Previous</a> <a href='list.html'>Next</a> >> list<br /><h1>Tasks1</h1>
+<br />Tasks << <a href='Tasks.html'>Previous</a> <a href='list.html'>Next</a> >> list</div>
         
     <!-- footer -->
       <div class="container">
