@@ -76,7 +76,53 @@ student_account = stud_info[1] # GitHub 帳號
 # 插入學員資料，格式為 "學員 GitHub: {student_id}, 作業網站: {student_account}"
 brython_div1 &lt;= f"學員 GitHub: {student_id}, 作業網站: {student_account}"
 brython_div1 &lt;= html.BR() # 換行</pre>
-<p><br/><br/></p><h2>Tasks2</h2>
+<p></p>
+<p>改為真正作業網站連結為下</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document, window
+
+# 設定資料來源 URL
+url = "https://mde.tw/list/2b.txt"
+
+# 函數用來載入資料
+def load_data():
+    window.fetch(url).then(lambda response: response.text()).then(process_data)
+
+# 處理資料
+def process_data(data):
+    # 以行分割資料
+    all_stud = data.splitlines()[1:]  # 跳過標題行
+
+    # 顯示總學員數量
+    print(f"總共有 {len(all_stud)} 名學員")
+
+    # 取得網頁中指定的 div 元素
+    brython_div1 = document["brython_div1"]
+
+    # 動態插入每位學員的資料
+    for idx, stud in enumerate(all_stud, start=1):
+        # 假設每行的資料是由空格分隔的
+        stud_info = stud.split()  # 根據空格分割資料
+        if len(stud_info) &lt; 2:
+            continue  # 跳過格式不正確的資料行
+
+        student_id = stud_info[0]  # 學號
+        student_account = stud_info[1]  # GitHub 帳號
+
+        # 修改作業網站的 URL 格式
+        homework_url = f"https://mdecd2025.github.io/hw-{student_id}/content/index.html"
+
+        # 創建超連結，將學員 GitHub 和作業網站分別插入
+        brython_div1 &lt;= f"{idx}. 學員 GitHub: " + html.A(student_id, href=f"https://github.com/{student_id}")
+        brython_div1 &lt;= html.BR()  # 換行
+        brython_div1 &lt;= f"作業網站: " + html.A(homework_url, href=homework_url)
+        brython_div1 &lt;= html.BR()  # 換行
+
+# 呼叫載入資料的函數
+load_data()</pre>
+<p><br/><br/></p>
+<p></p>
+<p></p>
+<p> </p><h2>Tasks2</h2>
 <h2>Tasks3</h2>
 <h2>Tasks4</h2>
 <h2>Tasks5</h2>
